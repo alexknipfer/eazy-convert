@@ -11,19 +11,23 @@ class PriceForm extends Component{
     super();
     this.calculateTax = this.calculateTax.bind(this);
     this.state = {
-      totalTax: "0.00%",
-      costOfItem: "$0.00"
+      totalTax: "0.00",
+      costOfItem: "0.00"
     }
   }
 
   calculateTax(){
     const itemCost = document.getElementById('itemCost').value;
     const taxPercentage = document.getElementById('taxPercentage').value;
+    const taxRatePercentage = taxPercentage / 100;
+    const amountOfTax = (itemCost * taxRatePercentage);
+    const finalDollarAmount = Math.floor(itemCost) + amountOfTax;
 
+    console.log(finalDollarAmount);
 
-    if(itemCost=== '' && taxPercentage !== ''){
+    if(itemCost === '' && taxPercentage !== ''){
       this.setState({
-        costOfItem: '$0.00',
+        costOfItem: '0.00',
         totalTax: taxPercentage
       });
     }
@@ -31,25 +35,23 @@ class PriceForm extends Component{
     else if(taxPercentage === '' && itemCost!== ''){
       this.setState({
         costOfItem: itemCost,
-        totalTax: '0.00%'
+        totalTax: '0.00'
       });
     }
 
     else if(taxPercentage === '' && itemCost === ''){
       this.setState({
-        costOfItem: '$0.00',
-        totalTax: '0.00%'
+        costOfItem: '0.00',
+        totalTax: '0.00'
       });
     }
 
     else{
       this.setState({
-        totalTax: itemCost,
-        costOfItem: taxPercentage
+        totalTax: parseFloat(amountOfTax.toFixed(2)),
+        costOfItem: parseFloat(finalDollarAmount.toFixed(2))
       });
     }
-
-
   }
 
   render(){
@@ -66,9 +68,9 @@ class PriceForm extends Component{
             <br />
             <LinearProgress mode="determinate" />
             <br />
-            <h1>{this.state.totalTax}</h1>
+            <h1>Total Tax: ${this.state.totalTax}</h1>
             <br />
-            <h1>{this.state.costOfItem}</h1>
+            <h1>Total Cost: ${this.state.costOfItem}</h1>
             <br />
           </form>
           </CardText>
