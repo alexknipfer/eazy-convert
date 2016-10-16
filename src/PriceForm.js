@@ -19,10 +19,31 @@ class PriceForm extends Component{
   calculateTax(){
     const itemCost = document.getElementById('itemCost').value;
     const taxPercentage = document.getElementById('taxPercentage').value;
-    this.setState({
-      totalTax: itemCost,
-      costOfItem: taxPercentage
-    });
+
+    if(itemCost == ''){
+      this.setState({
+        costOfItem: "$0.00"
+      });
+    }
+
+    else if(taxPercentage == ''){
+      this.setState({
+        totalTax: "0.00%"
+      });
+    }
+
+    else if(itemCost == '' && taxPercentage == ''){
+      this.setState({
+        totalTax: "0.00%",
+        costOfItem: "$0.00"
+      });
+    }
+    else{
+      this.setState({
+        totalTax: itemCost,
+        costOfItem: taxPercentage
+      });
+    }
   }
 
   render(){
