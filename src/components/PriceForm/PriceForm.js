@@ -3,7 +3,6 @@ import {Card, CardTitle, CardText} from 'material-ui/Card';
 import './priceForm.css';
 import TextField from 'material-ui/TextField';
 import LinearProgress from 'material-ui/LinearProgress';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class PriceForm extends Component{
 
