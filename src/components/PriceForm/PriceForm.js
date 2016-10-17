@@ -56,8 +56,8 @@ class PriceForm extends Component{
 
   render(){
     return(
-      <div className="salesCard">
-        <Card>
+      <div className="flex-container">
+        <Card className="box">
           <CardTitle title="Sales Tax Calculator" />
           <CardText>
           <form>
