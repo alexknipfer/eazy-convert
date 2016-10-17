@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import PriceForm from './PriceForm.js';
+import PriceForm from './components/PriceForm/PriceForm.js';
 
 class App extends Component {
   render() {
