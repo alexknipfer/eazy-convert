@@ -12,9 +12,8 @@ class Home extends Component {
         <Card className="home-navigation">
           <CardTitle title="Calculation Control Panel" />
             <CardText>
-
             <List>
-              <ListItem primaryText="Sales Tax Calculator"><Link to="/priceForm"></Link>< /ListItem>
+              <ListItem><Link to="/priceForm">Sales Tax</Link></ListItem>
               <Divider />
               <ListItem primaryText="Conversion 1" />
               <Divider />
@@ -24,7 +23,9 @@ class Home extends Component {
               <Divider />
               <ListItem primaryText="Conversion 4" />
             </List>
-
+            <ul>
+              <li></li>
+            </ul>
             </CardText>
         </Card>
       </div>
